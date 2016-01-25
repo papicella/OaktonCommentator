@@ -52,7 +52,7 @@ public class CommentatorController implements ServletContextAware
                                     (String)m.get("HeartRate")));
                 }
 
-                log.info("Riders = " + riders.size());
+                //log.info("Riders = " + riders.size());
                 model.addAttribute("ridercount", riders.size());
             }
         }
