@@ -11,7 +11,7 @@ Screen Shot:
 ![alt tag](https://dl.dropboxusercontent.com/u/15829935/bluemix-docs/images/oakton-comm-1.png)
 
 
-<h2> Feed Data Into Application <h2>
+<h2> Feed Data Into Application </h2>
 
 - Data will look as follows
 
