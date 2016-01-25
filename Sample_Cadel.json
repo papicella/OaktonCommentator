@@ -1,0 +1,25 @@
+{
+  "Timestamp": "1437736287",
+  "Riders": [
+    {
+      "RiderId": "1",
+      "Cadence": "90",
+      "Speed": "23",
+      "HeartRate": "176"
+    },
+	{
+	  "RiderId": "2",
+      "Cadence": "80",
+      "Speed": "27",
+      "HeartRate": "160"
+	
+	},
+	{
+	  "RiderId": "4",
+      "Cadence": "80",
+      "Speed": "22",
+      "HeartRate": "170"
+	
+	}
+  ]
+}
