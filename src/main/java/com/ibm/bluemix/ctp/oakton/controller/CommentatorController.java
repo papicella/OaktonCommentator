@@ -45,7 +45,6 @@ public class CommentatorController implements ServletContextAware
                 for (Object rider: riderList)
                 {
                     Map m = (Map) rider;
-                    log.info((String)m.get("RiderId"));
                     riders.add(
                             new Rider((String)m.get("RiderId"),
                                     (String)m.get("Cadence"),
