@@ -46,7 +46,8 @@ Screen Shot:
 - Load data as follows
 
 ```
-pasapicella@Pas-MacBook-Pro:~$ curl -i -H "Accept: application/json" -H "Content-Type: application/json" http://oakton-commentator.au-syd.mybluemix.net/riderDataLoad -d @Sample_Cadel.json
+pasapicella@Pas-MacBook-Pro:~$ curl -i -H "Accept: application/json" -H "Content-Type: application/json" 
+http://oakton-commentator.au-syd.mybluemix.net/riderDataLoad -d @Sample_Cadel.json
 HTTP/1.1 200 OK
 X-Backside-Transport: OK OK
 Connection: Keep-Alive
