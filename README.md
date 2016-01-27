@@ -10,8 +10,11 @@ Screen Shot:
 
 ![alt tag](https://dl.dropboxusercontent.com/u/15829935/bluemix-docs/images/oakton-comm-1.png)
 
+<h3> Bluemix Dashboard </h3>
 
-<h2> Feed Data Into Application </h2>
+![alt tag](https://dl.dropboxusercontent.com/u/15829935/bluemix-docs/images/oakton-comm-2.png)
+
+<h3> Feed Data Into Application </h3>
 
 - Data will look as follows
 

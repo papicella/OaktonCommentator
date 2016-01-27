@@ -1,5 +1,9 @@
 package com.ibm.bluemix.ctp.oakton.controller;
 
+import com.cloudant.client.api.CloudantClient;
+import com.cloudant.client.api.Database;
+import com.ibm.bluemix.ctp.oakton.cloudant.CloudantConfiguration;
+import com.ibm.bluemix.ctp.oakton.cloudant.RiderInfoDataModel;
 import com.ibm.bluemix.ctp.oakton.domain.Rider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,7 +36,14 @@ public class CommentatorController implements ServletContextAware
     @RequestMapping(value="/", method = RequestMethod.GET)
     public String listTeams (Model model)
     {
-        String jsonString = (String) context.getAttribute("riderData");
+        //String jsonString = (String) context.getAttribute("riderData");
+        CloudantClient cc = CloudantConfiguration.getInstance();
+        Database cd = cc.database("ridertemp", false);
+
+        RiderInfoDataModel riderObjectInDb = cd.find(RiderInfoDataModel.class,"1");
+
+        String jsonString = riderObjectInDb.getData();
+
         List<Rider> riders = new ArrayList<>();
 
         if (jsonString != null)
@@ -66,4 +77,5 @@ public class CommentatorController implements ServletContextAware
         return "commentator";
 
     }
+
 }

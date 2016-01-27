@@ -1,7 +1,9 @@
 applications:
 - name: oakton-commentator
   memory: 512M
-  instances: 1
+  instances: 2
   buildpack: java_buildpack
   host: oakton-commentator
   path: ./target/OaktonCommentator-0.0.1-SNAPSHOT.jar
+  services:
+    - Cloudant-Oakton

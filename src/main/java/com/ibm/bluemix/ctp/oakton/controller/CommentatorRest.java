@@ -1,5 +1,10 @@
 package com.ibm.bluemix.ctp.oakton.controller;
 
+import com.cloudant.client.api.CloudantClient;
+import com.cloudant.client.api.Database;
+import com.cloudant.client.api.model.Response;
+import com.ibm.bluemix.ctp.oakton.cloudant.CloudantConfiguration;
+import com.ibm.bluemix.ctp.oakton.cloudant.RiderInfoDataModel;
 import com.ibm.bluemix.ctp.oakton.domain.Rider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -53,16 +58,40 @@ public class CommentatorRest implements ServletContextAware
                 "  ]\n" +
                 "}";
 
-        context.setAttribute("riderData", data);
+        addDataToCloudant(data);
+        //context.setAttribute("riderData", data);
     }
 
     @RequestMapping(value = "/riderDataLoad", method=RequestMethod.POST)
     public String newDataLoad(@RequestBody String riderJson)
     {
         //log.info(riderJson);
-
-        context.setAttribute("riderData", riderJson);
+        //context.setAttribute("riderData", riderJson);
+        addDataToCloudant(riderJson);
 
         return "Data Loaded successfully...";
+    }
+
+    private void addDataToCloudant (String riderJson)
+    {
+        CloudantClient cc = CloudantConfiguration.getInstance();
+        Database cd = cc.database("ridertemp", false);
+
+        // Get current riderData for key = 1
+        RiderInfoDataModel riderObjectInDb = cd.find(RiderInfoDataModel.class,"1");
+        Response postResponse = null;
+
+        // When the db already has the ID in it
+        if(riderObjectInDb!=null)
+        {
+            riderObjectInDb.setData(riderJson);
+            postResponse = cd.update(riderObjectInDb);
+        }
+        //new insert of the doc
+        else
+        {
+            postResponse = cd.save(riderJson);
+        }
+
     }
 }
