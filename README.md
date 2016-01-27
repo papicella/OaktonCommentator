@@ -65,5 +65,33 @@ X-Global-Transaction-ID: 528299743
 Data Loaded successfully...
 ```
 
+<h3> Application Properties </h3>
+
+```
+pasapicella@pas-macbook-pro:~$ cf app oakton-commentator
+Showing health and status for app oakton-commentator in org pasapi@au1.ibm.com / space oakton as pasapi@au1.ibm.com...
+OK
+
+requested state: started
+instances: 2/2
+usage: 512M x 2 instances
+urls: oakton-commentator.au-syd.mybluemix.net
+last uploaded: Wed Jan 27 02:07:28 UTC 2016
+stack: cflinuxfs2
+buildpack: java_buildpack
+
+     state     since                    cpu    memory           disk           details
+#0   running   2016-01-27 01:08:15 PM   0.1%   427.4M of 512M   146.8M of 1G
+#1   running   2016-01-27 01:08:16 PM   0.1%   448M of 512M     146.8M of 1G
+
+pasapicella@pas-macbook-pro:~$ cf services
+Getting services in org pasapi@au1.ibm.com / space oakton as pasapi@au1.ibm.com...
+OK
+
+name              service           plan     bound apps           last operation
+Cloudant-Oakton   cloudantNoSQLDB   Shared   oakton-commentator   create succeeded
+
+```
+
 <hr />
 Pas Apicella [pasapi at au1.ibm.com] is a Bluemix Technical Specialist at IBM Australia 
