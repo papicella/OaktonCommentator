@@ -93,5 +93,28 @@ Cloudant-Oakton   cloudantNoSQLDB   Shared   oakton-commentator   create succeed
 
 ```
 
+<h3> Deploy application once cloned as follows </h3>
+
+- clone project as follows
+
+```
+$ git clone https://github.com/papicella/OaktonCommentator.git
+```
+
+- package once code altered as follows
+
+```
+$ mvn package
+```
+
+- alter manifest.yml to provide a unique host name and a cloudant service by name
+
+- deploy using something as follows
+
+```
+$ cf push -f manifest.yml
+```
+
+
 <hr />
 Pas Apicella [pasapi at au1.ibm.com] is a Bluemix Technical Specialist at IBM Australia 
